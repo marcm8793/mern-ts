@@ -1,0 +1,47 @@
+services:
+  mongo-dev:
+    image: "mongo"
+    container_name: mongo-dev
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "pass123"
+    volumes:
+      - ./mongo/data:/data/db
+
+  mongo-test:
+    image: "mongo"
+    container_name: mongo-test
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "pass123"
+    volumes:
+      - ./mongo/testdata:/data/db
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo-dev
+      - mongo-test
+    environment:
+      MONGO_DEV_URI: "mongodb://root:pass123@host.docker.internal:27017/DBPass"
+      MONGO_TEST_URI: "mongodb://root:pass123@host.docker.internal:27018/DBPass"
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - server
+    command: ["npm", "run", "dev", "--", "--host"]

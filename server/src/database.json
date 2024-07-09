@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "first_name": "Jean",
+      "last_name": "Dupont",
+      "age": 25,
+      "phone_number": "0123456789",
+      "address": "123 rue Saint-Honoré, 75001 Paris, France",
+      "password": "password1"
+    },
+    {
+      "first_name": "Marie",
+      "last_name": "Curie",
+      "age": 30,
+      "phone_number": "0987654321",
+      "address": "456 rue de la Paix, 75002 Paris, France",
+      "password": "password2"
+    },
+    {
+      "first_name": "Pierre",
+      "last_name": "Dubois",
+      "age": 28,
+      "phone_number": "0112233445",
+      "address": "789 rue de Rivoli, 75003 Paris, France",
+      "password": "password3"
+    },
+    {
+      "first_name": "Sophie",
+      "last_name": "Lefevre",
+      "age": 35,
+      "phone_number": "0223344556",
+      "address": "101 rue de la Convention, 75015 Paris, France",
+      "password": "password4"
+    },
+    {
+      "first_name": "Luc",
+      "last_name": "Martin",
+      "age": 40,
+      "phone_number": "0334455667",
+      "address": "202 rue de Vaugirard, 75015 Paris, France",
+      "password": "password5"
+    }
+  ],
+  "places": [
+    {
+      "address": "10 rue de la Bibliothèque, 75005 Paris, France",
+      "phone_number": "0123456789",
+      "required_pass_level": 2,
+      "required_age_level": 18
+    },
+    {
+      "address": "20 rue du Laboratoire, 75006 Paris, France",
+      "phone_number": "0987654321",
+      "required_pass_level": 4,
+      "required_age_level": 21
+    }
+  ]
+}
